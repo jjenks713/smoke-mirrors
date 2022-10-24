@@ -4,6 +4,9 @@ import Navbar from '../components/NavBar/Navbar'
 import Header from '../components/Header/Header'
 import CardBody from '../components/CardBody/CardBody'
 import Footer from '../components/Footer/Footer'
+import ContactForm from '../components/ContactForm/ContactForm'
+import ContactBody from '../components/ContactBody/ContactBody'
+
 
 export default function Contact() {
 
@@ -16,7 +19,17 @@ export default function Contact() {
             </Head>
             < Navbar />
 
-            <div className={"container mx-auto px-5 lg-px-20"}>
+            <div className={"container mx-auto px-5 lg-px-20 pt-10"}>
+                <div className='text-9xl pb-10 text-center'>Contact</div>
+                <div className='mx-auto p-10 flex flex-wrap'>
+                    <div className='w-full md:w-1/2 text-center'>
+                        <div className='text-5xl'>Send us a message</div>
+                        <ContactForm />
+                    </div>
+                    <div className='w-full md:w-1/2'>
+                        <ContactBody />
+                    </div>
+                </div>
 
             </div>
             < Footer />
