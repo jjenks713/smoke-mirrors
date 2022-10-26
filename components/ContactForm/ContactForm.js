@@ -1,5 +1,6 @@
 import { TextField, Button } from '@mui/material'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function ContactForm() {
     const [name, setName] = useState('')
@@ -28,9 +29,9 @@ export default function ContactForm() {
                 <TextField value={message} onChange={(e) => setMessage(e.target.value)} type={"text"} id="standard-basic" label="message" variant="standard" required />
             </div>
 
-            <div className='p-12'>
+            <motion.div whileHover={{ scale: 1.1 }} className='p-12'>
                 <button className="border-solid border-2 border-neutral-500 py-2 px-10 rounded-2xl">Submit</button>
-            </div>
+            </motion.div>
         </form>
     )
 }

@@ -1,10 +1,11 @@
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function ContactBody() {
 
     return (
         <div className="text-center">
-            <div className="text-7xl"><Link href="/">make a reservation</Link></div>
+            <motion.div whileHover={{ scale: 1.1 }} className="text-7xl"><Link href="/">make a reservation</Link></motion.div>
             <div className="inline-block align-middle text-4xl py-14">
                 <div>or call us</div>
                 <div>801-555-555</div>
