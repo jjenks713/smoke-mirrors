@@ -48,7 +48,8 @@ export default function ImageCarousel() {
                             <motion.div
                                 initial={{ rotate: -10, height: 0, opacity: 0 }}
                                 animate={{ rotate: 0, height: "100%", opacity: 1 }}
-                                transition={{ duration: .5, type: "spring", stiffness: 100 }} key={index}>
+                                transition={{ duration: .5, type: "spring", stiffness: 100 }}
+                                key={index}>
                                 <img //eslint-disable-line
                                     src={image.url}
                                     alt={image.alt}

@@ -2,6 +2,7 @@ import logo from "../../public/images/logo-white.png"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from 'framer-motion'
+import NavTabs from "./NavTabs"
 
 export default function Navbar() {
 
@@ -16,21 +17,7 @@ export default function Navbar() {
                         <Link href="/"><Image src={logo} alt="smoke/mirrors" width={250} height={50} className="w-10" /></Link>
                     </motion.div>
                     <div className={"flex align-middle text-2xl"}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            className={"pr-10 m-auto"}>
-                            <Link href="/about">about</Link>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            className={"pr-10 m-auto"}>
-                            <Link href="/contact"> contact</Link>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            className={"m-auto"}>
-                            <Link href="/contact"> make reservation</Link>
-                        </motion.div>
+                        <NavTabs />
                     </div>
                 </div>
 

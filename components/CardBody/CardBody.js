@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion"
+import { useEffect } from "react";
 
 export default function CardBody() {
 
@@ -16,7 +17,7 @@ export default function CardBody() {
             num: 4, title: "Style", text: "something even better baby", color: "black"
         }
     ]
-    const cardVariants = {
+    let cardVariants = {
         offscreen: {
             y: 300,
             rotate: -10,
@@ -32,7 +33,28 @@ export default function CardBody() {
                 duration: 0.8
             }
         }
-    };
+    }
+    /* const isMobile = window.innerWidth < 768;
+
+    if (!isMobile) {
+        cardVariants = {
+            offscreen: {
+                y: 300,
+                rotate: -10,
+                opacity: 0,
+            },
+            onscreen: {
+                y: 50,
+                rotate: 0,
+                opacity: 1,
+                transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 0.8
+                }
+            }
+        };
+    } */
     return (
         <div className="pb-20 pt-36 z-0">
             <div className="text-8xl text-center pb-5 lg:pb-20">Services we Provide</div>
