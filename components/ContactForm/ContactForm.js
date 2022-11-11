@@ -1,32 +1,59 @@
 import { TextField, Button } from '@mui/material'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { send } from 'emailjs-com';
 
 export default function ContactForm() {
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [message, setMessage] = useState('')
-    console.log(name)
+    const [toSend, setToSend] = useState({
+        from_name: '',
+        phone_number: '',
+        message: '',
+        reply_to: '',
+    });
 
-    function formSubmit(event) {
-        console.log(name, phone, email, message)
-    }
+    const onSubmit = (e) => {
+        e.preventDefault();
+        send(
+            process.env.PROJECT_ID,
+            process.env.TEMPLATE_ID,
+            toSend,
+            process.env.USER_ID
+        )
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                alert("Your email has been sent successfully, we will respond as soon as possible")
+                setToSend({
+                    from_name: '',
+                    phone_number: '',
+                    message: '',
+                    reply_to: '',
+                })
+            })
+            .catch((err) => {
+                console.log('FAILED...', err);
+                alert("There was an error, please try again")
+            });
+    };
+
+    const handleChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+    };
 
 
     return (
-        <form className='flex flex-col text-center' onSubmit={formSubmit}>
+        <form className='flex flex-col text-center' onSubmit={onSubmit}>
             <div className='py-8'>
-                <TextField value={name} onChange={(e) => setName(e.target.value)} type={"text"} id="standard-basic" label="name" variant="standard" required />
+                <TextField value={toSend.from_name} onChange={handleChange} name='from_name' type={"text"} id="standard-basic" label="name" variant="standard" required />
             </div>
             <div className='py-8'>
-                <TextField value={phone} onChange={(e) => setPhone(e.target.value)} type={"tel"} id="standard-basic" label="phone" variant="standard" required />
+                <TextField value={toSend.phone_number} onChange={handleChange} name='phone_number' type={"tel"} id="standard-basic" label="phone number" variant="standard" required />
             </div>
             <div className='py-8'>
-                <TextField value={email} onChange={(e) => setEmail(e.target.value)} type={"email"} id="standard-basic" label="email" variant="standard" required />
+                <TextField value={toSend.reply_to} onChange={handleChange} name='reply_to' type={"email"} id="standard-basic" label="email" variant="standard" required />
             </div>
+
             <div className='py-8'>
-                <TextField value={message} onChange={(e) => setMessage(e.target.value)} type={"text"} id="standard-basic" label="message" variant="standard" required />
+                <TextField value={toSend.message} onChange={handleChange} name='message' type={"text"} id="standard-basic" label="message" variant="standard" required />
             </div>
 
             <motion.div whileHover={{ scale: 1.1 }} className='p-12'>
