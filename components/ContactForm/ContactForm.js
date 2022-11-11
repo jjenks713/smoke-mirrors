@@ -43,7 +43,7 @@ export default function ContactForm() {
     return (
         <form className='flex flex-col text-center' onSubmit={onSubmit}>
             <div className='py-8'>
-                <TextField value={toSend.from_name} onChange={handleChange} name='from_name' type={"text"} id="standard-basic" label="name" variant="standard" required />
+                <TextField value={toSend.from_name} onChange={handleChange} name='from_name' type={"name"} id="standard-basic" label="name" variant="standard" required />
             </div>
             <div className='py-8'>
                 <TextField value={toSend.phone_number} onChange={handleChange} name='phone_number' type={"tel"} id="standard-basic" label="phone number" variant="standard" required />
