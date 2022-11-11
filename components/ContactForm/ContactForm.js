@@ -17,10 +17,10 @@ export default function ContactForm() {
     const onSubmit = (e) => {
         e.preventDefault();
         send(
-            process.env.PROJECT_ID,
-            process.env.TEMPLATE_ID,
+            'service_j7piwu4',
+            'template_iiogguj',
             toSend,
-            process.env.USER_ID
+            'V9GhScwMk-MG63G2M'
         )
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
