@@ -4,6 +4,9 @@ import { motion } from 'framer-motion'
 import { send } from 'emailjs-com';
 
 export default function ContactForm() {
+
+    console.log(process.env.PROJECT_ID)
+
     const [toSend, setToSend] = useState({
         from_name: '',
         phone_number: '',
