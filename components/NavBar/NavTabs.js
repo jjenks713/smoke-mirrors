@@ -7,10 +7,10 @@ import { useState } from "react";
 export default function NavTabs({ fixed }) {
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
-        <div className={"absolute right-10"} >
+        <div className={"absolute right-14 pt-1"} >
 
             <button
-                className="z-20 text-white cursor-pointer text-xl leading-none py-1 border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                className="z-20 relative left-full mr-10 text-white cursor-pointer text-xl leading-none py-1 border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                 type="button"
                 onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -19,7 +19,7 @@ export default function NavTabs({ fixed }) {
             <div
                 className={
                     "lg:flex flex-grow items-center" +
-                    (navbarOpen ? " flex" : " hidden")
+                    (navbarOpen ? " flex bg-white lg:bg-transparent text-black lg:text-white p-4 rounded-lg" : " hidden")
                 }
                 id="example-navbar-danger"
             >
@@ -27,21 +27,21 @@ export default function NavTabs({ fixed }) {
                     <li className="nav-item">
                         <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className={"lg:pr-10 m-auto"}>
+                            className={"py-1 lg:pr-10 m-auto"}>
                             <Link href="/about">about</Link>
                         </motion.div>
                     </li>
                     <li className="nav-item">
                         <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className={"lg:pr-10 m-auto"}>
+                            className={"py-1 lg:pr-10 m-auto"}>
                             <Link href="/contact"> contact</Link>
                         </motion.div>
                     </li>
                     <li className="nav-item">
                         <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className={"m-auto"}>
+                            className={"py-1 m-auto"}>
                             <Link href="/contact"> make reservation</Link>
                         </motion.div>
                     </li>

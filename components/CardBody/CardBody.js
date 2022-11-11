@@ -34,32 +34,12 @@ export default function CardBody() {
             }
         }
     }
-    /* const isMobile = window.innerWidth < 768;
 
-    if (!isMobile) {
-        cardVariants = {
-            offscreen: {
-                y: 300,
-                rotate: -10,
-                opacity: 0,
-            },
-            onscreen: {
-                y: 50,
-                rotate: 0,
-                opacity: 1,
-                transition: {
-                    type: "spring",
-                    bounce: 0.4,
-                    duration: 0.8
-                }
-            }
-        };
-    } */
     return (
         <div className="pb-20 pt-36 z-0">
-            <div className="text-8xl text-center pb-5 lg:pb-20">Services we Provide</div>
+            <div className="text-8xl text-center pb-20">Services we Provide</div>
             <motion.div
-                className={"flex flex-wrap justify-between pb-44 overflow-hidden"}
+                className={"hidden lg:flex flex-wrap justify-between pb-44 overflow-hidden"}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}>
@@ -73,6 +53,18 @@ export default function CardBody() {
                     </motion.div>
                 ))}
             </motion.div>
+            <div
+                className={"flex lg:hidden flex-wrap justify-between pb-44 overflow-hidden"}
+            >
+                {infoArray.map((info, index) => (
+                    <div
+                        key={index}
+                        className={" mx-auto text-xl mb-20 rounded-2xl p-10  bg-gradient-to-tr from-white to-neutral-600 shadow-2xl text-black max-w-xs"}>
+                        <div className="pb-10 text-3xl sm:text-5xl flex flex-wrap">{info.title}</div>
+                        <div className="pb-4">{info.text}</div>
+                    </div>
+                ))}
+            </div>
         </div>
 
     )
