@@ -1,9 +1,8 @@
-import { motion, Variants } from "framer-motion"
-import { useEffect } from "react";
+import { motion } from "framer-motion"
 
 export default function CardBody() {
 
-    const infoArray = [
+    const cardInfo = [
         {
             num: 1, title: "Haircuts", text: "something even better baby", color: "black"
         },
@@ -43,23 +42,23 @@ export default function CardBody() {
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.8 }}>
-                {infoArray.map((info, index) => (
+                {cardInfo.map((info, index) => (
                     <motion.div
                         variants={cardVariants}
                         key={index}
-                        className={" mx-auto text-xl mb-20 rounded-2xl p-10  bg-gradient-to-tr from-white to-neutral-600 shadow-2xl text-black max-w-xs"}>
-                        <div className="pb-10 text-3xl sm:text-5xl flex flex-wrap">{info.title}</div>
-                        <div className="pb-4">{info.text}</div>
+                        className={"mx-auto flex-col text-xl mb-20 rounded-2xl p-10 bg-gradient-to-tr from-white to-neutral-600 shadow-2xl text-black w-72"}>
+                        <div className="h-1/2 pb-10 text-3xl sm:text-5xl flex flex-wrap">{info.title}</div>
+                        <div className="h-1/2 pt-4 pb-4">{info.text}</div>
                     </motion.div>
                 ))}
             </motion.div>
             <div
                 className={"flex lg:hidden flex-wrap justify-between pb-44 overflow-hidden"}
             >
-                {infoArray.map((info, index) => (
+                {cardInfo.map((info, index) => (
                     <div
                         key={index}
-                        className={" mx-auto text-xl mb-20 rounded-2xl p-10  bg-gradient-to-tr from-white to-neutral-600 shadow-2xl text-black max-w-xs"}>
+                        className={"mx-auto text-xl mb-20 rounded-2xl p-10 bg-gradient-to-tr from-white to-neutral-600 shadow-2xl text-black w-72"}>
                         <div className="pb-10 text-3xl sm:text-5xl flex flex-wrap">{info.title}</div>
                         <div className="pb-4">{info.text}</div>
                     </div>

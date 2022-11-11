@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 export default function ContactBody() {
 
     return (
-        <div className="text-center">
+        <div className="text-center py-20">
             <motion.div whileHover={{ scale: 1.1 }} className="text-7xl"><Link href="/">make a reservation</Link></motion.div>
             <div className="inline-block align-middle text-4xl py-14">
                 <div>or call us</div>
